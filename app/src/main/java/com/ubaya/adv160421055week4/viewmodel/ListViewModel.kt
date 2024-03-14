@@ -1,8 +1,8 @@
-package com.ubaya.advweek4.viewmodel
+package com.ubaya.adv160421055week4.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.ubaya.advweek4.model.Student
+import com.ubaya.adv160421055week4.model.Student
 
 class ListViewModel: ViewModel() {
     val studentsLD = MutableLiveData<ArrayList<Student>>()

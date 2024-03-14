@@ -5,13 +5,13 @@ plugins {
 }
 
 android {
-    namespace = "com.ubaya.advweek4"
+    namespace = "com.ubaya.adv160421055week4"
     compileSdk = 34
     buildFeatures {
         viewBinding = true
     }
     defaultConfig {
-        applicationId = "com.ubaya.advweek4"
+        applicationId = "com.ubaya.adv160421055week4"
         minSdk = 27
         targetSdk = 33
         versionCode = 1

@@ -1,4 +1,4 @@
-package com.ubaya.advweek4.model
+package com.ubaya.adv160421055week4.model
 
 data class Student(
     val id:String?,

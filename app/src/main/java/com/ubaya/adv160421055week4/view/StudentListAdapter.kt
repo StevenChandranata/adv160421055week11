@@ -1,11 +1,11 @@
-package com.ubaya.advweek4.view
+package com.ubaya.adv160421055week4.view
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
-import com.ubaya.advweek4.databinding.FragmentStudentListItemBinding
-import com.ubaya.advweek4.model.Student
+import com.ubaya.adv160421055week4.databinding.FragmentStudentListItemBinding
+import com.ubaya.adv160421055week4.model.Student
 
 class StudentListAdapter (val studentList:ArrayList<Student>)
     :RecyclerView.Adapter<StudentListAdapter.StudentViewHolder>() {

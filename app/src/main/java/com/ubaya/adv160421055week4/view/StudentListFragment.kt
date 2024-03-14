@@ -1,4 +1,4 @@
-package com.ubaya.advweek4.view
+package com.ubaya.adv160421055week4.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,9 +8,8 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.ubaya.advweek4.R
-import com.ubaya.advweek4.databinding.FragmentStudentListBinding
-import com.ubaya.advweek4.viewmodel.ListViewModel
+import com.ubaya.adv160421055week4.databinding.FragmentStudentListBinding
+import com.ubaya.adv160421055week4.viewmodel.ListViewModel
 
 
 class StudentListFragment : Fragment() {
