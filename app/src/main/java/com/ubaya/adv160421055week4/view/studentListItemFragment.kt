@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import com.ubaya.adv160421055week4.R
 
 
-class studentListItemFragment : Fragment() {
+class StudentListItemFragment : Fragment() {
 
 
 
