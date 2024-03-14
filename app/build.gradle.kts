@@ -1,12 +1,15 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id ("androidx.navigation.safeargs.kotlin")
 }
 
 android {
     namespace = "com.ubaya.advweek4"
-    compileSdk = 33
-
+    compileSdk = 34
+    buildFeatures {
+        viewBinding = true
+    }
     defaultConfig {
         applicationId = "com.ubaya.advweek4"
         minSdk = 27
@@ -36,7 +39,8 @@ android {
 }
 
 dependencies {
-
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
+    implementation("com.google.android.material:material:1.11.0-alpha03")
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
