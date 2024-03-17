@@ -10,8 +10,6 @@ import com.ubaya.adv160421055week4.R
 
 class StudentListItemFragment : Fragment() {
 
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

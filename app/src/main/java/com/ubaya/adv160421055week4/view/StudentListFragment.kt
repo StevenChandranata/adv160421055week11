@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ubaya.adv160421055week4.databinding.FragmentStudentListBinding
 import com.ubaya.adv160421055week4.viewmodel.ListViewModel
@@ -57,8 +59,6 @@ class StudentListFragment : Fragment() {
             }
         })
 
-
     }
-
 
 }

@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.squareup.picasso.Picasso
+import com.ubaya.adv160421055week4.R
 import com.ubaya.adv160421055week4.databinding.FragmentStudentDetailBinding
 import com.ubaya.adv160421055week4.viewmodel.DetailViewModel
 
@@ -30,11 +32,12 @@ class StudentDetailFragment : Fragment() {
 
         detailViewModel.fetch()
 
-        detailViewModel.studentLD.observe(viewLifecycleOwner, Observer { student ->
-            binding.txtID.setText(student.id)
-            binding.txtName.setText(student.name)
-            binding.txtBod.setText(student.dob)
-            binding.txtPhone.setText(student.phone)
+        detailViewModel.studentLD.observe(viewLifecycleOwner, Observer { student1 ->
+            Picasso.get().load(student1.photoUrl).into(binding.imageProfile)
+            binding.txtID.setText(student1.id)
+            binding.txtName.setText(student1.name)
+            binding.txtBod.setText(student1.dob)
+            binding.txtPhone.setText(student1.phone)
         })
     }
 }

@@ -12,7 +12,7 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/imageProfile"
             android:layout_width="150dp"
             android:layout_height="128dp"
             android:layout_marginStart="133dp"
@@ -36,7 +36,7 @@
             app:layout_constraintBottom_toTopOf="@+id/TextInputLayoutName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView3">
+            app:layout_constraintTop_toBottomOf="@+id/imageProfile">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtID"
