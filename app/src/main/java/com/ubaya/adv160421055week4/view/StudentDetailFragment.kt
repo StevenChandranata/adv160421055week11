@@ -32,12 +32,12 @@ class StudentDetailFragment : Fragment() {
 
         detailViewModel.fetch()
 
-        detailViewModel.studentLD.observe(viewLifecycleOwner, Observer { student1 ->
-            Picasso.get().load(student1.photoUrl).into(binding.imageProfile)
-            binding.txtID.setText(student1.id)
-            binding.txtName.setText(student1.name)
-            binding.txtBod.setText(student1.dob)
-            binding.txtPhone.setText(student1.phone)
+        detailViewModel.studentLD.observe(viewLifecycleOwner, Observer { student ->
+            Picasso.get().load(student.photoUrl).into(binding.imageProfile)
+            binding.txtID.setText(student.id)
+            binding.txtName.setText(student.name)
+            binding.txtBod.setText(student.dob)
+            binding.txtPhone.setText(student.phone)
         })
     }
 }
