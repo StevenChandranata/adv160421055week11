@@ -34,8 +34,16 @@ class StudentListFragment : Fragment() {
 
         binding.recView.layoutManager = LinearLayoutManager(context)
         binding.recView.adapter = studentListAdapter
-        observeViewModel()
 
+        binding.refreshLayout.setOnRefreshListener {
+            binding.recView.visibility = View.GONE
+            binding.txtError.visibility = View.GONE
+            binding.progressLoad.visibility = View.VISIBLE
+            viewModel.refresh()
+            binding.refreshLayout.isRefreshing = false
+        }
+
+        observeViewModel()
 
     }
     fun observeViewModel() {
@@ -44,9 +52,9 @@ class StudentListFragment : Fragment() {
         })
         viewModel.studentLoadErrorLD.observe(viewLifecycleOwner, Observer {
             if(it == true) {
-                binding.txtError?.visibility = View.VISIBLE
+                binding.txtError.visibility = View.VISIBLE
             } else {
-                binding.txtError?.visibility = View.GONE
+                binding.txtError.visibility = View.GONE
             }
         })
         viewModel.loadingLD.observe(viewLifecycleOwner, Observer {
