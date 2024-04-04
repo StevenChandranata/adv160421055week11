@@ -46,7 +46,7 @@ class StudentDetailFragment : Fragment() {
             binding.txtPhone.setText(student.phone)
         })
         detailViewModel.studentLD.observe(viewLifecycleOwner, Observer {
-            var student = it
+            val student = it
 
             binding.btnUpdate?.setOnClickListener {
                 Observable.timer(5, TimeUnit.SECONDS)
