@@ -1,5 +1,6 @@
 package com.ubaya.adv160421055week4.view
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -26,7 +27,7 @@ class StudentDetailFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentStudentDetailBinding.inflate(inflater,container, false)
         return binding.root
     }
@@ -35,6 +36,7 @@ class StudentDetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         observeViewModel()
     }
+    @SuppressLint("CheckResult")
     fun observeViewModel() {
         detailViewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
         detailViewModel.fetch()
@@ -48,7 +50,7 @@ class StudentDetailFragment : Fragment() {
         detailViewModel.studentLD.observe(viewLifecycleOwner, Observer {
             val student = it
 
-            binding.btnUpdate?.setOnClickListener {
+            binding.btnUpdate.setOnClickListener {
                 Observable.timer(5, TimeUnit.SECONDS)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
