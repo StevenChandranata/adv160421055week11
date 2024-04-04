@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.squareup.picasso.Picasso
 import com.ubaya.adv160421055week4.databinding.FragmentStudentListBinding
 import com.ubaya.adv160421055week4.viewmodel.ListViewModel
 
@@ -42,10 +43,10 @@ class StudentListFragment : Fragment() {
             viewModel.refresh()
             binding.refreshLayout.isRefreshing = false
         }
-
         observeViewModel()
-
     }
+
+
     fun observeViewModel() {
         viewModel.studentsLD.observe(viewLifecycleOwner, Observer {
             studentListAdapter.updateStudentList(it)
@@ -66,7 +67,6 @@ class StudentListFragment : Fragment() {
                 binding.progressLoad.visibility = View.GONE
             }
         })
-
     }
 
 }
