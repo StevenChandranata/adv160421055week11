@@ -40,15 +40,13 @@ class StudentDetailFragment : Fragment() {
     fun observeViewModel() {
         detailViewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
         detailViewModel.fetch()
-        detailViewModel.studentLD.observe(viewLifecycleOwner, Observer { student ->
+        detailViewModel.studentLD.observe(viewLifecycleOwner, Observer {
+            val student = it
             Picasso.get().load(student.photoUrl).into(binding.imageProfile)
             binding.txtID.setText(student.id)
             binding.txtName.setText(student.name)
             binding.txtBod.setText(student.dob)
             binding.txtPhone.setText(student.phone)
-        })
-        detailViewModel.studentLD.observe(viewLifecycleOwner, Observer {
-            val student = it
 
             binding.btnUpdate.setOnClickListener {
                 Observable.timer(5, TimeUnit.SECONDS)
