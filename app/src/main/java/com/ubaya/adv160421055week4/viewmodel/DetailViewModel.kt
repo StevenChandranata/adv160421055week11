@@ -1,18 +1,38 @@
 package com.ubaya.adv160421055week4.viewmodel
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.android.volley.Request
+import com.android.volley.RequestQueue
+import com.android.volley.Response
+import com.android.volley.toolbox.JsonObjectRequest
+import com.android.volley.toolbox.Volley
+import com.google.gson.Gson
 import com.ubaya.adv160421055week4.model.Student
+import org.json.JSONObject
 
-class DetailViewModel: ViewModel() {
+class DetailViewModel(application: Application) : AndroidViewModel(application) {
     val studentLD = MutableLiveData<Student>()
+    private val requestQueue: RequestQueue = Volley.newRequestQueue(application)
 
+    fun fetch(studentId: String) {
+        val url = "http://adv.jitusolution.com/student.php?id=$studentId"
 
-    fun fetch() {
-        val student1 = Student("16055","Nonie","1998/03/28","5718444778",
-            "http://dummyimage.com/75x100.jpg/cc0000/ffffff")
-        val student2 = Student("13312","Rich","1994/12/14","3925444073","http://dummyimage.com/75x100" +
-                ".jpg/5fa2dd/ffffff")
-        studentLD.value = student1
+        val jsonObjectRequest = JsonObjectRequest(
+            Request.Method.GET, url, null,
+            { response ->
+                val gson = Gson()
+                val student = gson.fromJson(response.toString(), Student::class.java)
+                studentLD.value = student
+            },
+            { error ->
+                error.printStackTrace()
+            }
+        )
+
+        requestQueue.add(jsonObjectRequest)
     }
 }
+

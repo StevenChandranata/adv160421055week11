@@ -23,6 +23,8 @@ class StudentDetailFragment : Fragment() {
     private lateinit var detailViewModel: DetailViewModel
     private lateinit var binding: FragmentStudentDetailBinding
 
+    private var studentId: String = ""
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,14 +36,14 @@ class StudentDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        studentId = StudentDetailFragmentArgs.fromBundle(requireArguments()).studentId
+        detailViewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
+        detailViewModel.fetch(studentId)
         observeViewModel()
     }
     @SuppressLint("CheckResult")
     fun observeViewModel() {
-        detailViewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
-        detailViewModel.fetch()
-        detailViewModel.studentLD.observe(viewLifecycleOwner, Observer {
-            val student = it
+        detailViewModel.studentLD.observe(viewLifecycleOwner, Observer {student ->
             Picasso.get().load(student.photoUrl).into(binding.imageProfile)
             binding.txtID.setText(student.id)
             binding.txtName.setText(student.name)
